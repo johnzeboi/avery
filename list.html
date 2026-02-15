@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Things I Love About Avery 🐣</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* Smaller Reveal button */
+#revealBtn {
+    padding: 12px 30px;
+    font-size: 1em;
+}
+
+/* Hide list items initially */
+.love-list li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+/* When revealed */
+.love-list li.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Make list items font smaller */
+.love-list li.love-note {
+    font-size: 1.5em;
+}
+
+/* Next button (hidden initially) */
+#nextBtn {
+    display: none;
+    padding: 14px 40px;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+    <div class="container success">
+        <div class="hearts-background">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+        <div class="content">
+            <h1 class="success-title" style="font-size:2em;">things i love about avery 🐣</h1>
+
+            <ul class="love-list" id="loveList">
+                <li class="love-note">your eyeballs 👀</li>
+                <li class="love-note">your cute smile 😊</li>
+                <li class="love-note">pretty hair 🪮</li>
+                <li class="love-note">really good smell 👃</li>
+                <li class="love-note">your sleepy voice 😪</li>
+                <li class="love-note">mole impersonation 🐭</li>
+            </ul>
+
+            <div class="buttons">
+                <button class="btn yes-btn" id="revealBtn">>>click dis </button>
+                <button class="btn yes-btn" id="nextBtn" onclick="location.href='picture.html'">>>></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Reveal list items one by one
+    const listItems = document.querySelectorAll("#loveList li");
+    let currentIndex = 0;
+
+    const revealBtn = document.getElementById("revealBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    revealBtn.addEventListener("click", () => {
+        if (currentIndex < listItems.length) {
+            listItems[currentIndex].classList.add("show");
+            currentIndex++;
+
+            // When last item revealed
+            if (currentIndex === listItems.length) {
+                revealBtn.style.display = "none";   // hide reveal button
+                nextBtn.style.display = "inline-block"; // show next button
+            }
+        }
+    });
+    </script>
+</body>
+</html>

@@ -5,10 +5,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const initialOffsetX = 0;
     const initialOffsetY = -80;
 
-    // Yes button redirects to success.html
+    // Yes button redirects to yes.html
     if (yesBtn) {
         yesBtn.addEventListener('click', () => {
-            window.location.href = 'success.html';
+            window.location.href = 'yes.html';
         });
     }
 

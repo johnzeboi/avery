@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avery's Gallery 💕</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* Centered single image with caption */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    gap: 10px;
+}
+
+.photo-container {
+    display: none; /* hidden initially */
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-container.show {
+    display: flex; /* show current */
+}
+
+.gallery img {
+    max-width: 90%;
+    max-height: 60vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255,105,180,0.3);
+    transition: transform 0.5s ease;
+}
+
+.caption {
+    font-size: 1em;
+    color: #FF1493;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttons .btn {
+    padding: 12px 30px;
+    font-size: 1em;
+}
+
+/* Next Page button hidden initially */
+#nextPageBtn {
+    display: none;
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 50%, #FF69B4 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Fredoka', sans-serif;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#nextPageBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(255,20,147,0.4);
+}
+</style>
+</head>
+<body>
+<div class="container success">
+    <div class="hearts-background">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="content">
+        <h1 class="success-title" style="font-size:2em;">my favorite photos of pp 🐣</h1>
+
+        <!-- Image gallery -->
+        <div class="gallery" id="gallery">
+            <div class="photo-container">
+                <img src="media/eyes.jpg" alt="Photo 1">
+                <p class="caption">very pretty eyeballs</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="media/bigeyes.jpg" alt="Photo 2">
+                <p class="caption">very big eyeballs</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="media/avery.jpg" alt="Photo 3">
+                <p class="caption">that time when i stole your phone and took this picture not knowing that i would end up dating such a cute and heartwarming girl that i love soooooooooooooooo much</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="media/mole.png" alt="Photo 4">
+                <p class="caption">mole pp</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn yes-btn" id="revealBtn">more</button>
+            <button id="nextPageBtn" onclick="location.href='letter.html'">➡️➡️➡️➡️➡️➡️➡️➡️➡️➡️➡️➡️</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const photoContainers = document.querySelectorAll('#gallery .photo-container');
+let currentIndex = -1; // start empty
+
+const revealBtn = document.getElementById('revealBtn');
+const nextPageBtn = document.getElementById('nextPageBtn');
+
+revealBtn.addEventListener('click', () => {
+    // hide previous container
+    if (currentIndex >= 0) {
+        photoContainers[currentIndex].classList.remove('show');
+    }
+
+    currentIndex++;
+
+    if (currentIndex < photoContainers.length) {
+        photoContainers[currentIndex].classList.add('show');
+
+        // If last photo, hide "next 💖" and show "Next Page"
+        if (currentIndex === photoContainers.length - 1) {
+            revealBtn.style.display = 'none';
+            nextPageBtn.style.display = 'inline-block';
+        }
+    }
+});
+</script>
+</body>
+</html>
